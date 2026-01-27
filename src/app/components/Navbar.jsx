@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,52 +12,61 @@ export default function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
     };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const menuItems = [
+    { label: "Home", href: "/" },
+    { label: "Tours", href: "#tours" },
+    { label: "Destinations", href: "#destinations" },
+    { label: "Excursions", href: "#excursions" },
+    { label: "Offers", href: "#offers" },
+    { label: "Tailor Made Tours", href: "#tailor-made" },
+    { label: "Contact", href: "#contact" },
+  ];
 
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300
-      ${scrolled ? 'bg-white shadow-md' : 'bg-transparent'}
+        ${scrolled ? "bg-white shadow-md" : "bg-transparent"}
       `}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-
-        {/* Logo */}
-        <div className="flex items-center space-x-3">
+        {/* LOGO */}
+        <Link href="/" className="flex items-center space-x-3">
           <div className="text-3xl">🇱🇰</div>
           <div>
             <div
               className={`text-xl font-bold transition ${
-                scrolled ? 'text-orange-600' : 'text-white'
+                scrolled ? "text-orange-600" : "text-white"
               }`}
             >
               Sri Lanka Tours Driver
             </div>
             <div
               className={`text-xs transition ${
-                scrolled ? 'text-gray-600' : 'text-white/80'
+                scrolled ? "text-gray-600" : "text-white/80"
               }`}
             >
               Discover Amazing Places
             </div>
           </div>
-        </div>
+        </Link>
 
-        {/* Desktop Menu */}
+        {/* DESKTOP MENU */}
         <div className="hidden md:flex items-center space-x-6">
-          {['tours', 'destinations', 'drivers', 'contact'].map((item) => (
+          {menuItems.map((item) => (
             <a
-              key={item}
-              href={`#${item}`}
+              key={item.label}
+              href={item.href}
               className={`font-medium transition ${
                 scrolled
-                  ? 'text-gray-700 hover:text-orange-600'
-                  : 'text-white hover:text-orange-300'
+                  ? "text-gray-700 hover:text-orange-600"
+                  : "text-white hover:text-orange-300"
               }`}
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item.label}
             </a>
           ))}
 
@@ -68,29 +78,30 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile Button */}
+        {/* MOBILE TOGGLE */}
         <button
           className={`md:hidden transition ${
-            scrolled ? 'text-gray-800' : 'text-white'
+            scrolled ? "text-gray-800" : "text-white"
           }`}
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Toggle Menu"
         >
           {mobileOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       {mobileOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="px-6 py-6 space-y-4">
-            {['tours', 'destinations', 'drivers', 'contact'].map((item) => (
+            {menuItems.map((item) => (
               <a
-                key={item}
-                href={`#${item}`}
+                key={item.label}
+                href={item.href}
                 onClick={() => setMobileOpen(false)}
                 className="block text-gray-700 font-medium hover:text-orange-600"
               >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
+                {item.label}
               </a>
             ))}
 
