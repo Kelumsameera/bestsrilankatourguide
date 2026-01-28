@@ -59,6 +59,7 @@ export default function HeroVideo() {
 
       {/* DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/55" />
+      <p className="font-sinhala text-lg">ශ්‍රී ලංකාවේ අමතක නොවන සංචාර</p>
 
       {/* CONTENT */}
       <div

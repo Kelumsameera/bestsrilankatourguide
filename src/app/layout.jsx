@@ -1,32 +1,36 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Playfair_Display, Noto_Sans_Sinhala } from "next/font/google";
 import "./globals.css";
-import FloatingActions from "./components/FloatingActions";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-poppins",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-playfair",
+});
+
+const sinhala = Noto_Sans_Sinhala({
+  subsets: ["sinhala"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sinhala",
 });
 
 export const metadata = {
   title: "Sri Lanka Tours Driver",
-  description: "Discover Amazing Places in Sri Lanka",
+  description: "Luxury & Adventure Tours in Sri Lanka",
 };
-
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <FloatingActions />
-      </body>
+    <html
+      lang="en"
+      className={`${poppins.variable} ${playfair.variable} ${sinhala.variable}`}
+    >
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
