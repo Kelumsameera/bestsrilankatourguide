@@ -58,7 +58,7 @@ export default function HeroVideo() {
       </video>
 
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/15" />
+      <div className="absolute inset-0 bg-black/10" />
 
       {/* CONTENT */}
       <div
@@ -70,7 +70,7 @@ export default function HeroVideo() {
           🇱🇰 Explore Sri Lanka
         </span>
 
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-4">
+        <h1 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-4">
           {videos[currentVideo].title}
         </h1>
 
