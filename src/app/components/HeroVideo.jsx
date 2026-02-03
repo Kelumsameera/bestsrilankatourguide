@@ -86,8 +86,6 @@ export default function HeroVideo() {
         inset: 0,
         background: "linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7))",
       }} />
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/10" />
 
       <div style={{
         position: "absolute",
@@ -114,8 +112,6 @@ export default function HeroVideo() {
           lineHeight: 1.05,
         }}>
           {slide.title}
-        <h1 className="text-2xl lg:text-5xl font-extrabold leading-tight mb-4">
-          {videos[currentVideo].title}
         </h1>
 
         <p style={{ marginTop: 16, fontSize: "1.2rem", opacity: 0.85 }}>
