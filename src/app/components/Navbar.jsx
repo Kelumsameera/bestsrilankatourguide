@@ -18,11 +18,11 @@ export default function Navbar() {
 
   const menuItems = [
     { label: "Home", href: "/" },
-    { label: "Tours", href: "#tours" },
+    { label: "Tours", href: "/tours" },
     { label: "Destinations", href: "/destinations" },
     { label: "Excursions", href: "/excursions" },
     { label: "Offers", href: "#offers" },
-    { label: "Tailor Made", href: "#tailor-made" },
+    { label: "Tailor Made", href: "/tailor-made" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -101,7 +101,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-white/95 backdrop-blur-xl shadow-xl"
+            className="md:hidden bg-white/50 backdrop-blur-xl shadow-xl"
           >
             <div className="px-6 py-8 space-y-6">
 

@@ -11,15 +11,15 @@ export default function Loader() {
       <div className="absolute w-96 h-96 bg-sky-400/20 blur-3xl rounded-full -top-20 -left-20" />
       <div className="absolute w-96 h-96 bg-emerald-400/20 blur-3xl rounded-full bottom-0 right-0" />
 
-      {/* Flying plane */}
-      <motion.div
+      
+      {/* <motion.div
         initial={{ x: -250 }}
         animate={{ x: 250 }}
         transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
         className="absolute top-16 text-2xl"
       >
         ✈️
-      </motion.div>
+      </motion.div> */}
 
       <div className="relative text-center z-10">
 
