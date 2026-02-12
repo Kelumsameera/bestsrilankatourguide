@@ -28,11 +28,24 @@ export default function HeroVideo() {
   const [progress, setProgress] = useState(0);
   const [scrollY, setScrollY] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [inView, setInView] = useState(true);
 
+  const sectionRef = useRef(null);
   const timeoutRef = useRef(null);
   const rafRef = useRef(null);
 
   const slide = SLIDES[current];
+
+  // ✅ Detect if Hero is in viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   // Parallax scroll
   useEffect(() => {
@@ -56,7 +69,7 @@ export default function HeroVideo() {
     timeoutRef.current = setTimeout(() => {
       setCurrent((c) => (c + 1) % SLIDES.length);
       setProgress(0);
-      setLoading(true); // show loader for next video
+      setLoading(true);
     }, SLIDE_DURATION);
 
     return () => {
@@ -66,9 +79,10 @@ export default function HeroVideo() {
   }, [current]);
 
   return (
-    <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
-
-      {/* VIDEO */}
+    <section
+      ref={sectionRef}
+      style={{ position: "relative", height: "100vh", overflow: "hidden" }}
+    >
       <video
         key={current}
         autoPlay
@@ -88,10 +102,10 @@ export default function HeroVideo() {
         <source src={slide.src} type="video/mp4" />
       </video>
 
-      {/* ✅ REAL LOADER */}
-      {loading && <Loader />}
+      {/* ✅ Loader only when hero visible */}
+      {loading && inView && <Loader />}
 
-      {/* Dark overlays */}
+      {/* overlays */}
       <div style={{
         position: "absolute",
         inset: 0,
@@ -104,7 +118,7 @@ export default function HeroVideo() {
         background: "radial-gradient(circle, transparent 45%, rgba(0,0,0,0.65))",
       }} />
 
-      {/* CONTENT */}
+      {/* content */}
       <div style={{
         position: "relative",
         zIndex: 10,
@@ -139,7 +153,6 @@ export default function HeroVideo() {
           Book Now
         </button>
 
-        {/* Progress */}
         <div style={{
           marginTop: 40,
           width: 120,

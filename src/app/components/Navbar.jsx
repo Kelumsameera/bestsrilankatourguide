@@ -22,6 +22,7 @@ export default function Navbar() {
     { label: "Destinations", href: "/destinations" },
     { label: "Excursions", href: "/excursions" },
     { label: "Offers", href: "#offers" },
+    { label: "Vehiles", href: "/vehicles" },
     { label: "Tailor Made", href: "/tailor-made" },
     { label: "Contact", href: "#contact" },
   ];

@@ -16,6 +16,7 @@
   import Testimonials from "./components/Testimonials";
   import Gallery from "./components/Gallery";
 import TrustBar from "./components/TrustBar";
+import VehiclesPage from "./vehicles/page";
 
   export default function SriLankaToursDriver() {
     
@@ -37,6 +38,7 @@ import TrustBar from "./components/TrustBar";
         <FeaturedTours />
         <SeasonalTours />
         <Drivers />
+        <VehiclesPage />
         <WhyUs />
         <OneDayTours />
         <Testimonials />
