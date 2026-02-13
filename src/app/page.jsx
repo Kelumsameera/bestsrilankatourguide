@@ -1,7 +1,6 @@
   "use client";
 
-  import Navbar from "./components/Navbar";
-  import Footer from "./components/Footer";
+
 
   import HeroVideo from "./components/HeroVideo";
   import Destinations from "./components/Destinations";
@@ -23,7 +22,7 @@ import VehiclesPage from "./vehicles/page";
 
     return (
       <div className="relative bg-white">
-        <Navbar />
+        
 
         {/* HERO SECTION */}
         <div className="relative">
