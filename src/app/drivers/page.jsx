@@ -4,8 +4,8 @@ import { use } from "react";
 import { notFound } from "next/navigation";
 import { vehicles } from "@/data/vehicles";
 
-import VehicleGallery from "@/components/VehicleGallery";
-import BookingBox from "@/components/BookingBox";
+import VehicleGallery from "../components/VehicleGallery";
+import BookingBox from "../components/BookingBox";
 
 import { Users, Fuel, Settings } from "lucide-react";
 
@@ -26,7 +26,7 @@ export default function VehiclePage({ params }) {
     <div className="bg-gray-50 min-h-screen">
 
       {/* HEADER */}
-      <div className="bg-gradient-to-r from-orange-600 to-amber-500 text-white p-12">
+      <div className="bg-linear-to-r from-orange-600 to-amber-500 text-white p-12">
         <h1 className="text-5xl font-bold">
           {vehicle.name}
         </h1>
