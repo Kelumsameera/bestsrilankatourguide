@@ -33,7 +33,7 @@ const destinations = [
 
 export default function DestinationDetail({ params }) {
   const destination = destinations.find(
-    (d) => d.slug === params.slug
+    (d) => d.id === params.id
   );
 
   if (!destination) {
